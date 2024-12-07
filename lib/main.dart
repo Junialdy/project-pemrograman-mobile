@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:habittute/theme/dark_mode.dart';
+import 'package:habittute/theme/light_mode.dart';
+import 'package:habittute/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    // Akses ThemeProvider dari context
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
+      theme: Provider.of<ThemeProvider>(context)
+          .currentTheme, // Tema berdasarkan ThemeProvider
     );
   }
 }
