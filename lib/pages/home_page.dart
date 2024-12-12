@@ -73,25 +73,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-      appBar: AppBar(
-        title: const Text("HomePage"),
-        backgroundColor: Colors.grey, // Set background color AppBar ke abu-abu
-      ),
-      drawer: Drawer(
-        child: Center(
-          // Menggunakan Center untuk menempatkan switch di tengah
-          child: CupertinoSwitch(
-            value: themeProvider.isDarkMode,
-            onChanged: (value) {
-              themeProvider.toggleTheme(); // Ganti tema
-            },
-          ),
-        ),
-      ),
-      body: const Center(
-        child: Text("THIS IS HOMEPAGE"),
-=======
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(),
       drawer: const MyDrawer(),
@@ -100,7 +81,6 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Theme.of(context).colorScheme.tertiary,
         child: const Icon(Icons.add),
->>>>>>> dc5ff19842722a8e09eada0f6b94cd1ef222a9e3
       ),
     );
   }
@@ -108,7 +88,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHabitList() {
     final habitDatabase = context.watch<HabitDatabase>();
 
-    List<Habit> currentHabits = habitDatabase.currentHabit;
+    List<Habit> currentHabits = habitDatabase.currentHabits;
 
     return ListView.builder(
       itemCount: currentHabits.length,
@@ -119,7 +99,7 @@ class _HomePageState extends State<HomePage> {
         final habit = currentHabits[index];
 
         // check if the habit is completed today
-        bool isCompletedToday = isHabitCompletedToday(habit.complatedDays);
+        bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
 
         // return habit tile UI
         return MyHabitTile(

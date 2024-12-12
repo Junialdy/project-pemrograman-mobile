@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habittute/database/habit_database.dart';
 import 'package:habittute/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'pages/home_page.dart';
