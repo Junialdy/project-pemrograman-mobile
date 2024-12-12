@@ -18,7 +18,9 @@ The application is developed using the **Flutter** framework and **Dart** langua
 ### Junialdy
 - **📋 Habit Tile & List UI**: Designs and implements the user interface for listing and interacting with habits.
 
----
+### Ririn
+- **🛠️ Habit Class**: Defines the structure of a habit and its associated properties.
+- **📊 Initialize Database**: Sets up and configures the Isar database for the application.
 
 ## ✨ Features
 
