@@ -22,6 +22,9 @@ The application is developed using the **Flutter** framework and **Dart** langua
 - **🛠️ Habit Class**: Defines the structure of a habit and its associated properties.
 - **📊 Initialize Database**: Sets up and configures the Isar database for the application.
 
+### Aqil
+- **✍️ CRUD Functionality**: Handles Create, Read, Update, and Delete operations for habits.
+
 ## ✨ Features
 
 - **Habit Tracking**: Add, edit, delete, and toggle habits.
