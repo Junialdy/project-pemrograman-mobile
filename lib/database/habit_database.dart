@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:habittute/models/app_settings.dart';
+import 'package:habittute/models/habit.dart';
 import 'package:isar/isar.dart';
-import 'package:path provider/path provider.dart';
+import 'package:path_provider/path_provider.dart';
 
 class HabitDatabase extends ChangeNotifier {
   static late Isar isar;
@@ -11,27 +13,27 @@ class HabitDatabase extends ChangeNotifier {
 
   */
 
-  // I N I T I A L I Z E - D A T A B A S E 
-    static Future<void> initialize() async {
-      final dir = await getApplicationDocumentsDirectory();
-      isar = await Isar.open(
-        [HabitSchema, AppSettingsSchema],
-        directory: dir.path,
-      );
-    }
+  // I N I T I A L I Z E - D A T A B A S E
+  static Future<void> initialize() async {
+    final dir = await getApplicationDocumentsDirectory();
+    isar = await Isar.open(
+      [HabitSchema, AppSettingsSchema],
+      directory: dir.path,
+    );
+  }
 
   // Save first date of app startup (for heatmap)
   Future<void> saveFirstLaunchDate() async {
-    final existingSetting = await isar.AppSetting.where().findFirst();
+    final existingSetting = await isar.appSettings.where().findFirst();
     if (existingSetting == null) {
       final settings = AppSettings()..firstLaunchDate = DateTime.now();
-      await isar.writeTxn(() => isar.AppSettings.put(settings));   
+      await isar.writeTxn(() => isar.appSettings.put(settings));
     }
   }
 
   // Get first date of app startup (for heatmap)
   Future<DateTime?> getFirstLaunchDate() async {
-    final settings = await isar. appSettings.where().findFirst();
+    final settings = await isar.appSettings.where().findFirst();
     return settings?.firstLaunchDate;
   }
 
@@ -43,12 +45,11 @@ class HabitDatabase extends ChangeNotifier {
 
   // List of habits
 
-  // C R E A T E - add a new habit 
+  // C R E A T E - add a new habit
 
   // R E A D - read saved habit from db
 
-  // U P D A T E - edit habit name 
+  // U P D A T E - edit habit name
 
   // D E L E T E - delete habit
-
 }

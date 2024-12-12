@@ -19,9 +19,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Akses ThemeProvider dari context
-    final themeProvider = Provider.of<ThemeProvider>(context);
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
@@ -31,11 +28,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
-@override 
+@override
 Widget build(BuildContext context) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const HomePage(),
-    theme: Provider.of<ThemeProvider>(context).themeData,
+    theme: Provider.of<ThemeProvider>(context).currentTheme,
   ); // MaterialApp
 }
