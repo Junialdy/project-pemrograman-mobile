@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:habittute/theme/dark_mode.dart';
-import 'package:habittute/theme/light_mode.dart';
+import 'package:habittute/database/habit_database.dart';
 import 'package:habittute/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'pages/home_page.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        // habits provider
+        ChangeNotifierProvider(create: (context) => HabitDatabase()),
+
+        // theme provider
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ],
       child: const MyApp(),
     ),
   );
