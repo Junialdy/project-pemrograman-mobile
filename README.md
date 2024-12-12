@@ -25,6 +25,9 @@ The application is developed using the **Flutter** framework and **Dart** langua
 ### Aqil
 - **✍️ CRUD Functionality**: Handles Create, Read, Update, and Delete operations for habits.
 
+### Nadia
+- **🔥 Heat Map**: Develops the heatmap visualization feature to display user activity over time.
+
 ## ✨ Features
 
 - **Habit Tracking**: Add, edit, delete, and toggle habits.
