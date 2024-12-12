@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:habittute/database/habit_database.dart';
 import 'package:habittute/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'pages/home_page.dart';
@@ -24,20 +23,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Akses ThemeProvider dari context
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       theme: Provider.of<ThemeProvider>(context)
-          .currentTheme, // Tema berdasarkan ThemeProvider
+          .themeData, // Tema berdasarkan ThemeProvider
     );
   }
-}
-
-@override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: const HomePage(),
-    theme: Provider.of<ThemeProvider>(context).currentTheme,
-  ); // MaterialApp
 }
