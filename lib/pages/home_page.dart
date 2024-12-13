@@ -184,24 +184,25 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   //build heatmap
   Widget _buildHeatMap() {
     //habit database
     final habitDatabase = context.watch<HabitDatabase>();
 
     //current habbits
-    List<Habit>currentHabits = habitDatabase.currentHabits;
+    List<Habit> currentHabits = habitDatabase.currentHabits;
 
     //return heatmap ui
     return FutureBuilder<DateTime?>(
-      future: HabitDatabase.getFirstLaunchDate(),
+      future: habitDatabase.getFirstLaunchDate(),
       builder: (context, snapshot) {
         //once data is available, build heatmap
         if (snapshot.hasData) {
           return MyHeatMap(
-            startDate: snapshot.data!, 
+            startDate: snapshot.data!,
             datasets: prepareHeatMapDataset(currentHabits),
-            );
+          );
         }
         //handle case when no data is return
         else {
