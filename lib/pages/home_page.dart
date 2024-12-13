@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habittute/components/my_drawer.dart';
 import 'package:habittute/components/my_habit_tile.dart';
+import 'package:habittute/components/my_heat_map.dart';
 import 'package:habittute/database/habit_database.dart';
 import 'package:habittute/models/habit.dart';
 import 'package:habittute/util/habit_util.dart';
@@ -172,7 +173,41 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black87,
         ),
       ),
-      body: _buildHabitList(),
+      body: ListView(
+        children: [
+          //HEATMAP
+          _buildHeatMap(),
+
+          //HABIT LIST
+          _buildHabitList(),
+        ],
+      ),
+    );
+  }
+  //build heatmap
+  Widget _buildHeatMap() {
+    //habit database
+    final habitDatabase = context.watch<HabitDatabase>();
+
+    //current habbits
+    List<Habit>currentHabits = habitDatabase.currentHabits;
+
+    //return heatmap ui
+    return FutureBuilder<DateTime?>(
+      future: HabitDatabase.getFirstLaunchDate(),
+      builder: (context, snapshot) {
+        //once data is available, build heatmap
+        if (snapshot.hasData) {
+          return MyHeatMap(
+            startDate: snapshot.data!, 
+            datasets: prepareHeatMapDataset(currentHabits),
+            );
+        }
+        //handle case when no data is return
+        else {
+          return Container();
+        }
+      },
     );
   }
 
