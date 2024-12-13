@@ -15,18 +15,15 @@ The application is developed using the **Flutter** framework and **Dart** langua
 - **🌓 Light & Dark Mode**: Implements a toggleable light and dark mode for better user experience.
 - **🗂️ Isar Database**: Manages the database schema and handles CRUD operations.
 
-### Junialdy
-- **📋 Habit Tile & List UI**: Designs and implements the user interface for listing and interacting with habits.
-
-### Aqil
-- **✍️ CRUD Functionality**: Handles Create, Read, Update, and Delete operations for habits.
-
 ### Ririn
 - **🛠️ Habit Class**: Defines the structure of a habit and its associated properties.
 - **📊 Initialize Database**: Sets up and configures the Isar database for the application.
 
 ### Aqil
 - **✍️ CRUD Functionality**: Handles Create, Read, Update, and Delete operations for habits.
+  
+### Junialdy
+- **📋 Habit Tile & List UI**: Designs and implements the user interface for listing and interacting with habits.
 
 ### Nadia
 - **🔥 Heat Map**: Develops the heatmap visualization feature to display user activity over time.
